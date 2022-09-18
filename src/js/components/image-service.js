@@ -11,24 +11,21 @@ export default class ImagesApiService {
     this.page = 1;
   }
 
-  fetchArticles() {
+  fetchImages() {
     const URL = `${BASE_URL}/?key=${API_KEY}&q=${this.searchQuery}&${PARAMS}&per_page=40&page=${this.page}`;
 
-    return axios
-      .get(URL)
-      .then(({ data }) => {
-        this.page += 1;
+    return axios.get(URL).then(({ data }) => {
+      this.page += 1;
 
-        return { hits: data.hits, totalHits: data.totalHits };
-      })
-      .catch(error => console.error());
+      return { hits: data.hits, totalHits: data.totalHits };
+    });
   }
 
   resetPage() {
     this.page = 1;
   }
 
-  getPage() {
+  getCurrentPage() {
     return this.page;
   }
 
