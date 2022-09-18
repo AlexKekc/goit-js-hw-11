@@ -1,3 +1,8 @@
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -10,41 +15,109 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  margin: 0;
 }
 
-#search-box {
-  font: inherit;
-  padding: 8px;
-  max-width: 320px;
-  margin-bottom: 16px;
+a {
+  text-decoration: none;
 }
 
 p,
 h1 {
-  display: flex;
-  align-items: center;
-  color: #fafafa;
   padding-top: 0;
   padding-bottom: 0;
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-ul {
-  list-style: none;
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 20px 20px;
+  background: rgb(36, 130, 245);
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form input {
+  padding: 2px;
+  font-family: inherit;
+  color: #212121;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button {
+  font-family: inherit;
+  color: #212121;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #fdf21b;
+  cursor: pointer;
+}
+
+.load-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
   padding: 0;
   margin: 0;
+  max-width: calc(100vw - 80px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
 }
 
-li {
-  font-family: inherit;
-  color: #fafafa;
-  font-size: 16px;
-  list-style: none;
+.gallery__item {
+  position: relative;
 }
 
-img {
-  margin-right: 10px;
-  max-width: 3%;
-  height: auto;
+.photo-card {
+  overflow: hidden;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+}
+
+.gallery_img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.gallery_img:hover {
+  transform: scale(1.03);
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.info-item {
+  color: #212121;
+  margin: 10px;
+  text-align: center;
 }
